@@ -1,0 +1,65 @@
+/* inventory.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff8f0; /* warm background */
+}
+
+.inventory-container {
+  width: 1000px;
+  margin: 50px auto;
+  background-color: #fffdf9;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.inventory-header {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff6f00;
+}
+
+.refresh-button {
+  background-color: #ffa726;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.refresh-button:hover {
+  background-color: #fb8c00;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.user-table th,
+.user-table td {
+  border: 1px solid #f0e0d6;
+  padding: 12px;
+  text-align: left;
+}
+
+.user-table th {
+  background-color: #ffe0b2;
+  color: #4e342e;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #fff3e0;
+}
+
+.user-table tr:hover {
+  background-color: #ffecb3;
+}

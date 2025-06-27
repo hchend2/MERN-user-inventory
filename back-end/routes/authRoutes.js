@@ -6,20 +6,20 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
-const router = express.Router();
+const app = express();
 
 // Register route
-router.post('/register', async (req, res) => {
+app.post('/register', async (req, res) => {
   
     try {
-        const { username, email, password } = req.body;
+        const { firstname, lastname, email } = req.body;
 
-        const hashedPassword = await bcrypt.hash(password,10);
-
+        // const hashedPassword = await bcrypt.hash(password,10);
         const newUser = new User({
-            username,
+            firstname,
+            lastname,
             email,
-            password: hashedPassword,
+            // password: hashedPassword,
         });
 
         await newUser.save();
@@ -35,4 +35,4 @@ router.post('/register', async (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = app; // Export the app instance for use in server.js

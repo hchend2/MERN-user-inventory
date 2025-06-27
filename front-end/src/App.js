@@ -4,6 +4,7 @@ import Register from "./components/register";
 import Inventory from "./components/inventory";
 import SideBar from "./components/sidebar";
 
+
 const App = () => {
   return (
     <Router>

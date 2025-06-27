@@ -1,26 +1,22 @@
 //
 // models/user.js
 //
-
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  username: {
+  lastname: {
     type: String,
     required: true,
-    unique: true,
-    trim: true,
+  },
+  firstname: {
+    type: String,
+    required: true,
+
   },
   email: {
     type: String,
     required: true,
     unique: true,
-    trim: true,
-    lowercase: true,
-  },
-  password: {
-    type: String,
-    required: true,
   },
   createdAt: {
     type: Date,
@@ -32,5 +28,5 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema, 'users'); // 'users' is the collection name in MongoDB
 module.exports = User;

@@ -7,13 +7,15 @@ body {
 }
 
 .inventory-container {
-  width: 1000px;
-  margin: 50px auto;
   background-color: #fffdf9;
-  padding: 30px;
+  max-width: 1500px;
+  width: 200%;
+  margin-left: 0px;
+  padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
+  box-sizing: border-box;
 }
 
 .inventory-header {
@@ -62,4 +64,9 @@ body {
 
 .user-table tr:hover {
   background-color: #ffecb3;
+}
+
+.app-container {
+  display: flex;
+  gap: 20px; /* 👈 adjusts spacing between sidebar and inventory */
 }

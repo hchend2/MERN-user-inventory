@@ -6,10 +6,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
-const app = express();
+const router = express.Router();
 
-// Register route
-app.post('/register', async (req, res) => {
+// POST /auth/Register ...
+router.post('/register', async (req, res) => {
   
     try {
         const { firstname, lastname, email } = req.body;
@@ -35,4 +35,18 @@ app.post('/register', async (req, res) => {
     }
 });
 
-module.exports = app; // Export the app instance for use in server.js
+// GET /auth/inventory ...
+router.get('/inventory', async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (error) {
+    console.error('Error fetching users data:', error.message);
+    res.status(500).json({ 
+      message: 'Server error while fetching users data',
+      error: error.message
+    });
+  }
+});
+
+module.exports = router; // Export the app instance for use in server.js

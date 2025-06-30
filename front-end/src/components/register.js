@@ -10,18 +10,18 @@ const Register = () => {
   const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
 
-  // This function handles the registration process
+  // This function handles the registration process ...
   const handleRegister = async (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior 
+    e.preventDefault(); // Prevent the default form submission behavior ...
     try {
       const response = await axios.post(
-        'http://localhost:5000/auth/register', // Ensure this URL matches your backend endpoint ...
+        'http://localhost:5000/auth/register', // Ensure this URL matches the backend endpoint ...
         firstname && lastname && email ? { firstname, lastname, email } : {}, // Send the form data ...
         { withCredentials: true} // in case cookies are sent with the request ...
     );
     console.log('Registration successful!', response.data);
-
-     // Clear form fields after success
+    alert("User registered Successfuly!");
+     // Clear form fields after success ...
     setFirstname('');
     setLastname('');
     setEmail('');
@@ -30,7 +30,9 @@ const Register = () => {
       console.error('Registration failed:', error);
     }
   };
-  
+  // This function handles input changes ...
+  // It updates the state for firstname, lastname, and email ...
+  // based on the input field that was changed ...
   const handleChange = (e) => {
     const { name, value } = e.target;
     switch (name) {
@@ -47,6 +49,7 @@ const Register = () => {
         break;
     }
   }; 
+  // The component renders a registration form ...
   return (
     <div className="register-container">
       <h2>Register</h2>

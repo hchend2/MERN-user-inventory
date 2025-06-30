@@ -14,17 +14,12 @@ const PORT = process.env.PORT;
 
 // Middleware
 app.use(cors({ 
-    origin: 'http://localhost:3000', // the port where Reactjs app is running ...
+    origin: 'http://localhost:3000', // the port where React app is running ...
     credentials: true 
 }));
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
-
-// test route ...
-app.get('/', (req, res) => {
-        res.send('Welcome to the backend server!');
-    });
 
 // API Routes ...
 app.use('/auth', authRoutes);

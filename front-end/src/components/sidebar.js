@@ -1,4 +1,6 @@
-import React from 'react';
+//
+// File: front-end/src/components/sidebar.js
+//
 import { Link } from 'react-router-dom';
 import './sidebar.css';
 

@@ -52,7 +52,9 @@ const Register = () => {
   // The component renders a registration form ...
   return (
     <div className="register-container">
-      <h2>Register</h2>
+      <h1 className="form-header">User Management System</h1>
+      <h2 className="register-header">Register User</h2>
+      {/* <h2>Register</h2> */}
       <form onSubmit={handleRegister}>
         <input type="text" name="firstname" placeholder="Firstname" value={firstname} onChange={handleChange} required />
         <input type="text" name="lastname" placeholder="Lastname" value={lastname} onChange={handleChange} required />

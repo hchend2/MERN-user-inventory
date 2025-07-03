@@ -1,8 +1,8 @@
-/* sidebar.css */
-
-/* Sidebar should stick to the left */
+/*  */
+/* File: front-end/src/components/sidebar.css */
+/*  */
 .sidebar-container {
-  width: 220px;
+  width: 200px;
   background-color: #fff3e0;
   border-radius: 10px;
   margin: 10px;
@@ -11,11 +11,11 @@
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', sans-serif;
   position: fixed;
-  top: 0;
+  top: 10px;
   bottom: 10px;
   left: 0;
 }
-
+/*  */
 .sidebar-link {
   display: block;
   margin: 10px 0;
@@ -26,12 +26,12 @@
   border-radius: 8px;
   transition: background-color 0.3s, color 0.3s;
 }
-
+/*  */
 .sidebar-link:hover {
   background-color: rgba(255, 183, 77, 0.2);
   color: #bf360c;
 }
-
+/*  */
 .sidebar-button {
   margin-top: auto;
   width: 100%;
@@ -46,12 +46,12 @@
   box-shadow: 0 4px 8px rgba(255, 167, 38, 0.4);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
+/*  */
 .sidebar-button:hover {
   background-color: #fb8c00;
   transform: translateY(-1px);
 }
-
+/*  */
 .sidebar-button:active {
   background-color: #ef6c00;
   transform: translateY(0);

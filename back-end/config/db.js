@@ -3,7 +3,7 @@
 //
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-dotenv.config(); // Load environment variables from .env file
+dotenv.config(); // Load environment variables from .env file ...
 
 const connectMongoDB = async () => {
   try {
@@ -13,4 +13,4 @@ const connectMongoDB = async () => {
     console.error('MongoDB connection error:', error);
   }
 };
-module.exports = connectMongoDB; // Export the connect function for use in server.js
+module.exports = connectMongoDB; // Export the connectMongoDB function for use in server.js ...

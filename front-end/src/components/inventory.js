@@ -11,6 +11,7 @@ const Inventory = () => {
   const [editUser, setEditUser] = useState(null);
   const [editForm, setEditForm] = useState({ firstname: '', lastname: '', email: '' });
   const [viewUser, setViewUser] = useState(null);
+  const [deleteUser, setDeleteUser] = useState(null);
   //
   // Fetch users from the server ...
   const fetchUsers = async () => {
@@ -32,7 +33,6 @@ const Inventory = () => {
       await axios.delete(`http://localhost:5000/auth/inventory/${userId}`, {
         withCredentials: true,
       });
-      alert(`User with ID ${userId} deleted successfully`);
       // Log the success message to the console ...
       console.log(`User with ID ${userId} deleted successfully`);
       fetchUsers();
@@ -40,6 +40,16 @@ const Inventory = () => {
       alert(`Error deleting user with ID ${userId}: ${error.message}`);
       console.error("Error deleting user:", error);
     }
+  };
+  //
+  // Confirm delete user action ...
+  const confirmDelete = (userId) => {
+    setDeleteUser(userId);
+  };
+  //
+  // Cancel delete action ...
+  const cancelDelete = () => {
+    setDeleteUser(null);
   };
   //
   // Open edit modal and populate form ...
@@ -66,8 +76,7 @@ const Inventory = () => {
         `http://localhost:5000/auth/inventory/${editUser._id}`, editForm,
         { withCredentials: true }
       );
-      // Alert the user about the successful update ...
-      alert(`User with ID ${editUser._id} updated successfully`);
+      // Log the success message to the console ...
       console.log(`User with ID ${editUser._id} updated successfully`);
       setEditUser(null);
       fetchUsers();
@@ -125,7 +134,7 @@ const Inventory = () => {
                   <td>{user.email}</td>
                   <td>
                     <div className="button-group">
-                      <button className="delete-button" onClick={() => handleDelete(user._id)}>Delete</button>
+                      <button className="delete-button" onClick={() => confirmDelete(user._id)}>Delete</button>
                       <button className="edit-button" onClick={() => handleEdit(user._id)}>Edit</button>
                       <button className="view-button" onClick={() => handleView(user._id)}>View</button>
                     </div>
@@ -166,7 +175,21 @@ const Inventory = () => {
             </form>
           </div>
         </div>
-      )}  
+      )}
+      {/* Delete Confirmation Modal */}
+      {deleteUser && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h3>Confirm Deletion</h3>
+            <p>Are you sure you want to delete this user?</p>
+            <button onClick={() => {
+              handleDelete(deleteUser);
+              setDeleteUser(null);
+            }}>Yes, Delete</button>
+            <button onClick={cancelDelete}>Cancel</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

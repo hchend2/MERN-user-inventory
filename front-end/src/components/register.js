@@ -1,10 +1,14 @@
 //
-// src/component/register.js
+// File: front-end/src/components/register.js
 //
 import React, { useState } from 'react';
 import axios from 'axios';
 import './register.css';
 
+
+const API_URL = process.env.REACT_APP_API_URL;
+
+// Register component to handle user registration ...
 const Register = () => {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
@@ -15,7 +19,7 @@ const Register = () => {
     e.preventDefault(); // Prevent the default form submission behavior ...
     try {
       const response = await axios.post(
-        'http://localhost:5000/auth/register', // Ensure this URL matches the backend endpoint ...
+        `${API_URL}/auth/register`, // Ensure this URL matches the backend endpoint ...
         firstname && lastname && email ? { firstname, lastname, email } : {}, // Send the form data ...
         { withCredentials: true} // in case cookies are sent with the request ...
     );

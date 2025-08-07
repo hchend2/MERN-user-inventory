@@ -5,6 +5,10 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "./inventory.css";
 //
+
+const API_URL = process.env.REACT_APP_API_URL; //
+
+// Inventory component to manage users ...
 const Inventory = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,7 +20,7 @@ const Inventory = () => {
   // Fetch users from the server ...
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/auth/inventory", {
+      const response = await axios.get(`${API_URL}/auth/inventory`, {
         withCredentials: true,
       });
       setUsers(response.data);

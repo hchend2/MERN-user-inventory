@@ -12,6 +12,12 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
 
+// test backend for connection ...
+// http://localhost:5000
+app.get('/', (req, res) => {
+  res.send('Hello from the backend server!');
+});
+
 // Middleware
 app.use(cors({ 
     origin: 'http://localhost:3000', // the port where React app is running ...
